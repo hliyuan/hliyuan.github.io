@@ -254,6 +254,213 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/JavaScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hliyuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小圆子的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/08/JavaScript/" itemprop="url">javaScipt基础知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T17:06:10+08:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###1.控制台输出内容，单引号双引号均可以 </p>
+<p><code>console.log(&#39;log test&#39;)         //在控制台打印log</code>   </p>
+<p>###2.声明变量用var   </p>
+<p>###3.<strong>数据</strong>和<strong>过程</strong>是构成javascript世界的基本元素。其中，数据分两类-<strong>简单数据</strong>和<strong>复杂数据</strong>；过程只有一种形式，就是<strong>function</strong>  </p>
+<blockquote>
+<p>简单数据类型  </p>
+</blockquote>
+<p>&ensp;&ensp;undefined:这个值表示变量不含有值<br>&ensp;&ensp;null: 这个值表示变量为空<br>&ensp;&ensp;boolean: true/false<br>&ensp;&ensp;number: js只有一种数字类型，可以带小数点，可以不带<br>&ensp;&ensp;string: 字符串<br><code>typeof(data)</code> 返回data的数据类型  </p>
+<blockquote>
+<p>复杂数据类型</p>
+</blockquote>
+<p>js中复杂数据类型只有一种，即对象{object}<br>对象由花括号包围。在括号内部，属性以键值对的形式，如 key : value 来定义，又称属性名和属性值。属性间由逗号分隔。例如:<br><code>var student={name:&#39;Tom&#39;, age:25, id:123};</code><br>对象属性值有两种获取方式:<br><code>name = student.name;</code><br><code>name = student[&#39;name&#39;];</code><br>对象的另一种格式—数组<br>例如：<br>声明对象<br><code>var courses = [ &quot;Math&quot;, &quot;Chinese&quot;, &quot;Biology&quot;, &quot;Physics&quot;];</code><br>对象取值<br><code>var course = course[0]</code><br>数组和对象的区别是<br>[1]数组两端由方括号包围，而不是对象两端的花括号。<br>[2]数组内的数据是一个个独立的值(value)，由逗号隔开，而不是对象中的属性键值对形式( key:value)。</p>
+<p>###4.运算符</p>
+<blockquote>
+<p>算数运算符</p>
+</blockquote>
+<p>数字运算<br>&ensp;&ensp;+、-、<em>、/、%、++、–<br>&ensp;&ensp;优先级顺序<code>++ --</code> -&gt; `</em> / %<code>-&gt;</code>+ -`<br>字符串中用+号表示连接两个字符串  </p>
+<blockquote>
+<p>比较运算符</p>
+</blockquote>
+<p>常用的比较运算符有: == ，===， != ， &gt; ， &lt; ， &gt;= ， &lt;=<br><code>x == y  //等于 (判断x，y的值是否相等)</code><br><code>x === y //等于 (判断x，y的值和类型是否都相同)</code>  </p>
+<blockquote>
+<p>逻辑运算符</p>
+</blockquote>
+<p>&amp;&amp;   ||   ！</p>
+<blockquote>
+<p>条件运算符</p>
+</blockquote>
+<p><code>conditin?a:b;</code>  condition为true时，执行a,否则，执行b.  </p>
+<p>###5.过程–function<br>声明函数的格式    </p>
+<pre><code>function 函数名(参数, 参数, ...){  
+    代码块  
+}      
+</code></pre><p>例如  </p>
+<pre><code>function sum(a, b){
+    return a+b ;
+}  
+</code></pre><p>###6.代码块与作用域<br>所有{}包起来的代码，都可以称之为 “代码块”。</p>
+<p>每个代码块都有一个自己的作用域，作用域决定了变量能否被访问（不论读取变量还是修改变量）<br>访问规则：<br>&ensp;&ensp;1）.在最上层没有任何{}包裹的作用域为顶层作用域，声明的变量是哪里都可以访问的，如：  </p>
+<pre><code>var x = 5;
+if(x&gt;0){     //可以访问
+    x = 6;     //可以访问
+}
+
+function print_x(){
+    console.log(x);     //也可以访问
+}
+</code></pre><p>&ensp;&ensp;2).任何一个代码块，{}之间的代码区域称之为它的作用域，每一对大括号括起来的代码块里声明的变量，只能在这个代码块的作用域里访问，<strong>不过在js里是不具备这个能力的</strong>。 但是为了建立起正确的思维观，我们还是要讲讲块级作用域。虽然语言不支持，但我们人不要跨越块级作用域，这是一个基本素质，会极大的减少Bug发生率。  </p>
+<pre><code>if(true) {
+    var x = 5;
+    console.log(x); //可以访问
+}
+console.log(x); //其他语言里无法访问，但是在js里可以，但是我们就不要去访问了
+</code></pre><p>这是一个语言缺陷，在新版js（所谓的EcmaScript6，简称es6）中加入了<strong>let</strong>关键字，使用let关键字声明的变量就会<strong>遵守块级作用域的规则</strong>了。 但是es6目前不是所有浏览器都支持。  </p>
+<pre><code>if(true) {
+    let x = 5;
+    console.log(x); //可以访问
+}
+console.log(x); //无法访问，报异常： Uncaught ReferenceError: x is not defined  
+</code></pre><p>&ensp;&ensp;3).代码块是有层级的，在一个代码块里写的新的代码块，后者是前者的子作用域</p>
+<pre><code>if(true){
+    //相对于下面的代码块的父作用域
+    var x = 5;
+    if(x &gt; 0){
+    //子作用域
+       }
+}
+</code></pre><p>&ensp;&ensp;4).子作用域可以访问父作用域的变量，但是父作用域无法访问子作用域的变量。<strong>在js里父作用域可以访问子作用域的变量，除非子作用域使用let关键字</strong></p>
+<pre><code>if(true){
+    var x = 5;
+    if(x &gt; 0){
+        var y = &quot;a&quot;;
+        console.log(x); //可以访问
+        x = 6; //也可以访问
+    }
+    console.log(y); //不应该在这里再访问了。
+} 
+</code></pre><p>如果用let的话，就会符合这个规则。</p>
+<pre><code>if(true){
+    let x = 5;
+    if(x &gt; 0){
+        let y = &quot;a&quot;;
+        console.log(x); //可以访问
+        x = 6; //也可以访问
+       }
+    console.log(y); //无法访问，报异常： Uncaught ReferenceError: y is not defined
+}   
+</code></pre><p>当子作用域有变量与父作用域重名的时候，在子作用域里只能访问到子作用域的变量。称之为<strong>覆盖</strong>，但是子作用域的覆盖并不会消除父作用域的变量。例如：</p>
+<pre><code>var x = 5;
+
+function a(x){
+    console.log(x); //这时访问的x就不是父作用域的x了，而是参数x
+}
+
+a(6); //打印的是6
+console.log(x); //打印的是5
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/java反射机制实例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -322,10 +529,7 @@
       
         
           
-            <blockquote>
-<p>#java反射机制实例展示</p>
-</blockquote>
-<p>例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  </p>
+            <p>例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  </p>
 <p>首先是主板类</p>
 <pre><code>public class MainBoard {
     public static void run(){
@@ -533,10 +737,7 @@ net card run ....
       
         
           
-            <blockquote>
-<p>#java反射机制详解</p>
-</blockquote>
-<p>###概念<br>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
+            <p>###概念<br>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
 <p>###java反射机制的应用场景：<br>例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供的接口，也可以新建一个类，但是要怎么应用这个类呢？我们不可能直接去应用程序中定义这个类，因此，我们可以在该应用程序对外提供的配置文件中，将这个类文件的名字在配置文件中声明，则应用程序会自动读取配置文件，获取这个类的全部属性以及方法。</p>
 <p>###优点：大大提高了程序的扩展性以及灵活性。</p>
 <p>###前提</p>
@@ -730,213 +931,6 @@ public static void getMethodDemo_3() throws Exception {
     //person run...
     //paramMethod run...daidai:25
 }
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/25/JavaScript基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hliyuan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小圆子的blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/25/JavaScript基础/" itemprop="url">javaScipt基础知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T18:19:15+08:00">
-                2017-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###1.控制台输出内容，单引号双引号均可以 </p>
-<p><code>console.log(&#39;log test&#39;)         //在控制台打印log</code>   </p>
-<p>###2.声明变量用var   </p>
-<p>###3.<strong>数据</strong>和<strong>过程</strong>是构成javascript世界的基本元素。其中，数据分两类-<strong>简单数据</strong>和<strong>复杂数据</strong>；过程只有一种形式，就是<strong>function</strong>  </p>
-<blockquote>
-<p>简单数据类型  </p>
-</blockquote>
-<p>&ensp;&ensp;undefined:这个值表示变量不含有值<br>&ensp;&ensp;null: 这个值表示变量为空<br>&ensp;&ensp;boolean: true/false<br>&ensp;&ensp;number: js只有一种数字类型，可以带小数点，可以不带<br>&ensp;&ensp;string: 字符串<br><code>typeof(data)</code> 返回data的数据类型  </p>
-<blockquote>
-<p>复杂数据类型</p>
-</blockquote>
-<p>js中复杂数据类型只有一种，即对象{object}<br>对象由花括号包围。在括号内部，属性以键值对的形式，如 key : value 来定义，又称属性名和属性值。属性间由逗号分隔。例如:<br><code>var student={name:&#39;Tom&#39;, age:25, id:123};</code><br>对象属性值有两种获取方式:<br><code>name = student.name;</code><br><code>name = student[&#39;name&#39;];</code><br>对象的另一种格式—数组<br>例如：<br>声明对象<br><code>var courses = [ &quot;Math&quot;, &quot;Chinese&quot;, &quot;Biology&quot;, &quot;Physics&quot;];</code><br>对象取值<br><code>var course = course[0]</code><br>数组和对象的区别是<br>[1]数组两端由方括号包围，而不是对象两端的花括号。<br>[2]数组内的数据是一个个独立的值(value)，由逗号隔开，而不是对象中的属性键值对形式( key:value)。</p>
-<p>###4.运算符</p>
-<blockquote>
-<p>算数运算符</p>
-</blockquote>
-<p>数字运算<br>&ensp;&ensp;+、-、<em>、/、%、++、–<br>&ensp;&ensp;优先级顺序<code>++ --</code> -&gt; `</em> / %<code>-&gt;</code>+ -`<br>字符串中用+号表示连接两个字符串  </p>
-<blockquote>
-<p>比较运算符</p>
-</blockquote>
-<p>常用的比较运算符有: == ，===， != ， &gt; ， &lt; ， &gt;= ， &lt;=<br><code>x == y  //等于 (判断x，y的值是否相等)</code><br><code>x === y //等于 (判断x，y的值和类型是否都相同)</code>  </p>
-<blockquote>
-<p>逻辑运算符</p>
-</blockquote>
-<p>&amp;&amp;   ||   ！</p>
-<blockquote>
-<p>条件运算符</p>
-</blockquote>
-<p><code>conditin?a:b;</code>  condition为true时，执行a,否则，执行b.  </p>
-<p>###5.过程–function<br>声明函数的格式    </p>
-<pre><code>function 函数名(参数, 参数, ...){  
-    代码块  
-}      
-</code></pre><p>例如  </p>
-<pre><code>function sum(a, b){
-    return a+b ;
-}  
-</code></pre><p>###6.代码块与作用域<br>所有{}包起来的代码，都可以称之为 “代码块”。</p>
-<p>每个代码块都有一个自己的作用域，作用域决定了变量能否被访问（不论读取变量还是修改变量）<br>访问规则：<br>&ensp;&ensp;1）.在最上层没有任何{}包裹的作用域为顶层作用域，声明的变量是哪里都可以访问的，如：  </p>
-<pre><code>var x = 5;
-if(x&gt;0){     //可以访问
-    x = 6;     //可以访问
-}
-
-function print_x(){
-    console.log(x);     //也可以访问
-}
-</code></pre><p>&ensp;&ensp;2).任何一个代码块，{}之间的代码区域称之为它的作用域，每一对大括号括起来的代码块里声明的变量，只能在这个代码块的作用域里访问，<strong>不过在js里是不具备这个能力的</strong>。 但是为了建立起正确的思维观，我们还是要讲讲块级作用域。虽然语言不支持，但我们人不要跨越块级作用域，这是一个基本素质，会极大的减少Bug发生率。  </p>
-<pre><code>if(true) {
-    var x = 5;
-    console.log(x); //可以访问
-}
-console.log(x); //其他语言里无法访问，但是在js里可以，但是我们就不要去访问了
-</code></pre><p>这是一个语言缺陷，在新版js（所谓的EcmaScript6，简称es6）中加入了<strong>let</strong>关键字，使用let关键字声明的变量就会<strong>遵守块级作用域的规则</strong>了。 但是es6目前不是所有浏览器都支持。  </p>
-<pre><code>if(true) {
-    let x = 5;
-    console.log(x); //可以访问
-}
-console.log(x); //无法访问，报异常： Uncaught ReferenceError: x is not defined  
-</code></pre><p>&ensp;&ensp;3).代码块是有层级的，在一个代码块里写的新的代码块，后者是前者的子作用域</p>
-<pre><code>if(true){
-    //相对于下面的代码块的父作用域
-    var x = 5;
-    if(x &gt; 0){
-    //子作用域
-       }
-}
-</code></pre><p>&ensp;&ensp;4).子作用域可以访问父作用域的变量，但是父作用域无法访问子作用域的变量。<strong>在js里父作用域可以访问子作用域的变量，除非子作用域使用let关键字</strong></p>
-<pre><code>if(true){
-    var x = 5;
-    if(x &gt; 0){
-        var y = &quot;a&quot;;
-        console.log(x); //可以访问
-        x = 6; //也可以访问
-    }
-    console.log(y); //不应该在这里再访问了。
-} 
-</code></pre><p>如果用let的话，就会符合这个规则。</p>
-<pre><code>if(true){
-    let x = 5;
-    if(x &gt; 0){
-        let y = &quot;a&quot;;
-        console.log(x); //可以访问
-        x = 6; //也可以访问
-       }
-    console.log(y); //无法访问，报异常： Uncaught ReferenceError: y is not defined
-}   
-</code></pre><p>当子作用域有变量与父作用域重名的时候，在子作用域里只能访问到子作用域的变量。称之为<strong>覆盖</strong>，但是子作用域的覆盖并不会消除父作用域的变量。例如：</p>
-<pre><code>var x = 5;
-
-function a(x){
-    console.log(x); //这时访问的x就不是父作用域的x了，而是参数x
-}
-
-a(6); //打印的是6
-console.log(x); //打印的是5
 </code></pre>
           
         

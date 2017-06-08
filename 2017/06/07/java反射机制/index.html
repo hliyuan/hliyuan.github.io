@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="#java反射机制详解  ###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加">
+<meta name="description" content="###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java反射机制详解">
 <meta property="og:url" content="http://yoursite.com/2017/06/07/java反射机制/index.html">
 <meta property="og:site_name" content="小圆子的blog">
-<meta property="og:description" content="#java反射机制详解  ###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加">
-<meta property="og:updated_time" content="2017-06-08T08:56:46.378Z">
+<meta property="og:description" content="###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用">
+<meta property="og:updated_time" content="2017-06-08T09:10:09.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射机制详解">
-<meta name="twitter:description" content="#java反射机制详解  ###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加">
+<meta name="twitter:description" content="###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用">
 
 
 
@@ -320,10 +320,7 @@
       
 
       
-        <blockquote>
-<p>#java反射机制详解</p>
-</blockquote>
-<p>###概念<br>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
+        <p>###概念<br>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
 <p>###java反射机制的应用场景：<br>例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供的接口，也可以新建一个类，但是要怎么应用这个类呢？我们不可能直接去应用程序中定义这个类，因此，我们可以在该应用程序对外提供的配置文件中，将这个类文件的名字在配置文件中声明，则应用程序会自动读取配置文件，获取这个类的全部属性以及方法。</p>
 <p>###优点：大大提高了程序的扩展性以及灵活性。</p>
 <p>###前提</p>
@@ -552,10 +549,6 @@ public static void getMethodDemo_3() throws Exception {
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/05/25/JavaScript基础/" rel="next" title="javaScipt基础知识">
-                <i class="fa fa-chevron-left"></i> javaScipt基础知识
-              </a>
             
           </div>
 
