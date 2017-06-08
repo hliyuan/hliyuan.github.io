@@ -772,8 +772,7 @@ net card run ....
     }
 
 }
-</code></pre><p>1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。</p>
-<pre><code>public static void getClassObject_1(){
+</code></pre><h5 id="1-Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。"><a href="#1-Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。" class="headerlink" title="1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。"></a>1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。</h5><pre><code>public static void getClassObject_1(){
     Person p1 = new Person();
     Class clazz1 = p1.getClass();
 
@@ -782,8 +781,7 @@ net card run ....
 
     System.out.println((clazz1 == clazz2));  //打印true
 }
-</code></pre><p>2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。</p>
-<pre><code>public static void getClassObject_2(){
+</code></pre><h5 id="2-任何数据类型都具备一个静态属性-class来获取其对应的Class对象。还是需要明确用到类中的静态成员。"><a href="#2-任何数据类型都具备一个静态属性-class来获取其对应的Class对象。还是需要明确用到类中的静态成员。" class="headerlink" title="2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。"></a>2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。</h5><pre><code>public static void getClassObject_2(){
 
     Class clazz1 = Person.class;
 
@@ -791,8 +789,7 @@ net card run ....
 
     System.out.println((clazz1 == clazz2));  //打印true
 }
-</code></pre><p>3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。</p>
-<pre><code>public static void getClassObject_3() throws ClassNotFoundException {
+</code></pre><h5 id="3-只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。"><a href="#3-只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。" class="headerlink" title="3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。"></a>3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。</h5><pre><code>public static void getClassObject_3() throws ClassNotFoundException {
 
     String className = &quot;test.reflect.Person&quot;;  //类所在包名，可以在配置文件定义。
 
@@ -801,8 +798,7 @@ net card run ....
 
     System.out.println(clazz1);  //打印true
 }
-</code></pre><h3 id="获取Class中的构造函数"><a href="#获取Class中的构造函数" class="headerlink" title="获取Class中的构造函数"></a>获取Class中的构造函数</h3><p>1.调用无参构造函数的方法</p>
-<pre><code>public static void createNewObject_1() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+</code></pre><h3 id="获取Class中的构造函数"><a href="#获取Class中的构造函数" class="headerlink" title="获取Class中的构造函数"></a>获取Class中的构造函数</h3><h5 id="1-调用无参构造函数的方法"><a href="#1-调用无参构造函数的方法" class="headerlink" title="1.调用无参构造函数的方法"></a>1.调用无参构造函数的方法</h5><pre><code>public static void createNewObject_1() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
     //早期:new的时候，先根据被new的类的名称找寻该该类的字节码文件，并加载进内存。
     //并创建该字节码文件对象，并接着创建该字节文件的对应的Person对象。
     Person p = new Person();
@@ -815,8 +811,7 @@ net card run ....
     Object obj = clazz.newInstance();
 
 }
-</code></pre><p>2.调用带参构造函数的方法</p>
-<pre><code>public static void createNewObject_2() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+</code></pre><h5 id="2-调用带参构造函数的方法"><a href="#2-调用带参构造函数的方法" class="headerlink" title="2.调用带参构造函数的方法"></a>2.调用带参构造函数的方法</h5><pre><code>public static void createNewObject_2() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
     //早期：通过带参构造函数定义一个实例
     Person p = new Person(&quot;baobao&quot;,25);

@@ -99,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/07/java反射机制/index.html">
 <meta property="og:site_name" content="小圆子的blog">
 <meta property="og:description" content="概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供">
-<meta property="og:updated_time" content="2017-06-08T09:16:18.216Z">
+<meta property="og:updated_time" content="2017-06-08T09:23:55.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射机制详解">
 <meta name="twitter:description" content="概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供">
@@ -361,8 +361,7 @@
     }
 
 }
-</code></pre><p>1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。</p>
-<pre><code>public static void getClassObject_1(){
+</code></pre><h5 id="1-Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。"><a href="#1-Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。" class="headerlink" title="1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。"></a>1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。</h5><pre><code>public static void getClassObject_1(){
     Person p1 = new Person();
     Class clazz1 = p1.getClass();
 
@@ -371,8 +370,7 @@
 
     System.out.println((clazz1 == clazz2));  //打印true
 }
-</code></pre><p>2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。</p>
-<pre><code>public static void getClassObject_2(){
+</code></pre><h5 id="2-任何数据类型都具备一个静态属性-class来获取其对应的Class对象。还是需要明确用到类中的静态成员。"><a href="#2-任何数据类型都具备一个静态属性-class来获取其对应的Class对象。还是需要明确用到类中的静态成员。" class="headerlink" title="2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。"></a>2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。</h5><pre><code>public static void getClassObject_2(){
 
     Class clazz1 = Person.class;
 
@@ -380,8 +378,7 @@
 
     System.out.println((clazz1 == clazz2));  //打印true
 }
-</code></pre><p>3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。</p>
-<pre><code>public static void getClassObject_3() throws ClassNotFoundException {
+</code></pre><h5 id="3-只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。"><a href="#3-只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。" class="headerlink" title="3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。"></a>3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。</h5><pre><code>public static void getClassObject_3() throws ClassNotFoundException {
 
     String className = &quot;test.reflect.Person&quot;;  //类所在包名，可以在配置文件定义。
 
@@ -390,8 +387,7 @@
 
     System.out.println(clazz1);  //打印true
 }
-</code></pre><h3 id="获取Class中的构造函数"><a href="#获取Class中的构造函数" class="headerlink" title="获取Class中的构造函数"></a>获取Class中的构造函数</h3><p>1.调用无参构造函数的方法</p>
-<pre><code>public static void createNewObject_1() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+</code></pre><h3 id="获取Class中的构造函数"><a href="#获取Class中的构造函数" class="headerlink" title="获取Class中的构造函数"></a>获取Class中的构造函数</h3><h5 id="1-调用无参构造函数的方法"><a href="#1-调用无参构造函数的方法" class="headerlink" title="1.调用无参构造函数的方法"></a>1.调用无参构造函数的方法</h5><pre><code>public static void createNewObject_1() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
     //早期:new的时候，先根据被new的类的名称找寻该该类的字节码文件，并加载进内存。
     //并创建该字节码文件对象，并接着创建该字节文件的对应的Person对象。
     Person p = new Person();
@@ -404,8 +400,7 @@
     Object obj = clazz.newInstance();
 
 }
-</code></pre><p>2.调用带参构造函数的方法</p>
-<pre><code>public static void createNewObject_2() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+</code></pre><h5 id="2-调用带参构造函数的方法"><a href="#2-调用带参构造函数的方法" class="headerlink" title="2.调用带参构造函数的方法"></a>2.调用带参构造函数的方法</h5><pre><code>public static void createNewObject_2() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
 
     //早期：通过带参构造函数定义一个实例
     Person p = new Person(&quot;baobao&quot;,25);
@@ -665,7 +660,7 @@ public static void getMethodDemo_3() throws Exception {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java反射机制的应用场景："><span class="nav-number">2.</span> <span class="nav-text">java反射机制的应用场景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点：大大提高了程序的扩展性以及灵活性。"><span class="nav-number">3.</span> <span class="nav-text">优点：大大提高了程序的扩展性以及灵活性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前提"><span class="nav-number">4.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class文件的三种方式"><span class="nav-number">5.</span> <span class="nav-text">获取Class文件的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的构造函数"><span class="nav-number">6.</span> <span class="nav-text">获取Class中的构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的字段"><span class="nav-number">7.</span> <span class="nav-text">获取Class中的字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的方法"><span class="nav-number">8.</span> <span class="nav-text">获取Class中的方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java反射机制的应用场景："><span class="nav-number">2.</span> <span class="nav-text">java反射机制的应用场景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点：大大提高了程序的扩展性以及灵活性。"><span class="nav-number">3.</span> <span class="nav-text">优点：大大提高了程序的扩展性以及灵活性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前提"><span class="nav-number">4.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class文件的三种方式"><span class="nav-number">5.</span> <span class="nav-text">获取Class文件的三种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。"><span class="nav-number">5.0.1.</span> <span class="nav-text">1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-任何数据类型都具备一个静态属性-class来获取其对应的Class对象。还是需要明确用到类中的静态成员。"><span class="nav-number">5.0.2.</span> <span class="nav-text">2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。"><span class="nav-number">5.0.3.</span> <span class="nav-text">3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的构造函数"><span class="nav-number">6.</span> <span class="nav-text">获取Class中的构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-调用无参构造函数的方法"><span class="nav-number">6.0.1.</span> <span class="nav-text">1.调用无参构造函数的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-调用带参构造函数的方法"><span class="nav-number">6.0.2.</span> <span class="nav-text">2.调用带参构造函数的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的字段"><span class="nav-number">7.</span> <span class="nav-text">获取Class中的字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的方法"><span class="nav-number">8.</span> <span class="nav-text">获取Class中的方法</span></a></li></ol></div>
             
 
           </div>
