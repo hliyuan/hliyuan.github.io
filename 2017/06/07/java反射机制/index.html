@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>java反射机制详解 - Girls,Fighting</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="##java反射机制详解
+###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="Hliyuan">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <header id="header">
+  <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+    <a class="navbar-brand ml-2" href="/">Girls,Fighting</a>
+    <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto my-auto">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/archives">Archives</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        
+      </ul>
+      <hr class="hidden-md-up" />
+    </div>
+  </nav>
+</header>
+
+  		<div class="row">
+  			<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>java反射机制详解</h1>
+</div>
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <p>##java反射机制详解</p>
+<p>###概念<br>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
+<p>###java反射机制的应用场景：<br>例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供的接口，也可以新建一个类，但是要怎么应用这个类呢？我们不可能直接去应用程序中定义这个类，因此，我们可以在该应用程序对外提供的配置文件中，将这个类文件的名字在配置文件中声明，则应用程序会自动读取配置文件，获取这个类的全部属性以及方法。</p>
+<p>###优点：大大提高了程序的扩展性以及灵活性。</p>
+<p>###前提</p>
+<p>想要对一个类文件进行解剖，只要获取该类的字节码文件对象即可。</p>
+<pre><code>class Class{
+    //获取字节码文件中的内容
+    //比如：名称，字段，构造函数，一般函数。
+}//该类就可以获取字节码文件中的所有内容。
+//那么反射就是依靠该类来完成的。
+</code></pre><p>###获取Class文件的三种方式<br>先定义一个Person类</p>
+<pre><code>public class Person {
+    private String name;
+    private int age;
+
+    public Person() {
+        super();
+        System.out.println(&quot;person run...&quot;);
+    }
+    public Person(String name, int age) {
+        super();
+        this.name = name;
+        this.age = age;
+        System.out.println(&quot;person param run......&quot;+this.name+&quot;:&quot;+this.age);
+    }
+
+    public void show() {
+        System.out.println(&quot;show run...&quot;+name+&quot;:&quot;+age);
+    }
+
+    private void privateMethod(){
+        System.out.println(&quot;method run&quot;);
+    }
+
+    public void paramMethod(String str, int num){
+        System.out.println(&quot;paramMethod run...&quot;+str+&quot;:&quot;+num);
+    }
+
+    public static void staticMethod() {
+        System.out.println(&quot;staticMethod run...&quot;);
+    }
+
+}
+</code></pre><p>1.Object类中的getClass方法。想要用这种方式必须明确具体的类并创建对象。</p>
+<pre><code>public static void getClassObject_1(){
+    Person p1 = new Person();
+    Class clazz1 = p1.getClass();
+
+    Person p2 = new Person();
+    Class clazz2 = p2.getClass();
+
+    System.out.println((clazz1 == clazz2));  //打印true
+}
+</code></pre><p>2.任何数据类型都具备一个静态属性.class来获取其对应的Class对象。还是需要明确用到类中的静态成员。</p>
+<pre><code>public static void getClassObject_2(){
+
+    Class clazz1 = Person.class;
+
+    Class clazz2 = Person.class;
+
+    System.out.println((clazz1 == clazz2));  //打印true
+}
+</code></pre><p>3.只要通过给定的类的字符串名称，就可以获取该类，更为扩展。可以用class类中的方法forName完成。这种方式只要有名称即可，更为方便，扩展性更强。</p>
+<pre><code>public static void getClassObject_3() throws ClassNotFoundException {
+
+    String className = &quot;test.reflect.Person&quot;;  //类所在包名，可以在配置文件定义。
+
+    Class clazz1 = Class.forName(className);
+
+
+    System.out.println(clazz1);  //打印true
+}
+</code></pre><p>###获取Class中的构造函数<br>1.调用无参构造函数的方法</p>
+<pre><code>public static void createNewObject_1() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    //早期:new的时候，先根据被new的类的名称找寻该该类的字节码文件，并加载进内存。
+    //并创建该字节码文件对象，并接着创建该字节文件的对应的Person对象。
+    Person p = new Person();
+
+    //现在
+    String name = &quot;test.reflect.Person&quot;;
+    //找寻该名称类文件，并加载进内存，并产生class对象
+    Class clazz = Class.forName(name);
+    //如何产生该类的对象呢？
+    Object obj = clazz.newInstance();
+
+}
+</code></pre><p>2.调用带参构造函数的方法</p>
+<pre><code>public static void createNewObject_2() throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+
+    //早期：通过带参构造函数定义一个实例
+    Person p = new Person(&quot;baobao&quot;,25);
+
+    /**现在:
+     * 由于newInstance()方法默认调用无参构造函数。
+     * 当要获取指定名称对应类中所体现的对象时，
+     * 而该对象初始化 不使用 空参构造函数，该怎么办？
+     * 既然是通过指定的构造函数进行对象的初始化，
+     * 所以，应该先获取该指定的构造函数。通过字节码文件即可获得。
+     * getConstructor(paramterTypes)
+     * */
+    //现在
+    String name = &quot;test.reflect.Person&quot;;
+    //找寻该名称类文件，并加载进内存，并产生class对象
+    Class clazz = Class.forName(name);
+    //获取了指定的构造函数对象。
+    Constructor constructor = clazz.getConstructor(String.class, int.class);
+    //通过该构造器对象的newInstance方法进行对象的实例化
+    Object obj = constructor.newInstance(&quot;daidai&quot;,25);
+
+}
+</code></pre><p>###获取Class中的字段</p>
+<pre><code>public static void getFieldDemo() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, InstantiationException {
+
+    Class clazz = Class.forName(&quot;test.reflect.Person&quot;);
+
+
+    //Field field = clazz.getField(&quot;age&quot;);  //getField只能获取公共字段，
+    //System.out.println(field);      //NoSuchFieldException异常
+
+    Field field = clazz.getDeclaredField(&quot;age&quot;);  //获取本类的字段，包括私有、保护、公有。
+
+    //Object obj = clazz.newInstance();
+    //Object o = field.get(obj);      //get(Object obj)  属性(字段)只能由对象调用。
+    //System.out.println(o);   //IllegalAccessException,无效的访问异常，因为成员是私有的
+
+    /**
+     * 那么如何访问私有字段呢？---取消权限检查、强制访问，不建议使用。
+     * setAcessible(true);
+     * */
+
+    field.setAccessible(true);
+    Object obj2 = clazz.newInstance();
+    field.set(obj2,25);
+    Object o2 = field.get(obj2);
+    System.out.println(o2);  //25
+
+}
+</code></pre><p>###获取Class中的方法</p>
+<pre><code>/**
+ * 获取指定Class中的所有公有函数
+ * */
+public static void getMethodDemo_1() throws ClassNotFoundException {
+
+    Class clazz = Class.forName(&quot;test.reflect.Person&quot;);
+
+    Method[] methods = clazz.getMethods(); //获取的都是公有的方法。
+
+    for (Method method : methods) {
+
+        System.out.println(method);     //打印：public void test.reflect.Person.paramMethod(java.lang.String,int)
+                                          //public static void test.reflect.Person.staticMethod()
+                                          //public void test.reflect.Person.show(int)
+    }
+
+    //methods = clazz.getDeclaredMethods();  //若想获取本类中所有方法，包含私有。需要强制访问。setAccessible(true);
+
+}
+
+/**
+ * 获取无参方法。
+ * */
+public static void getMethodDemo_2() throws Exception {
+
+    Class clazz = Class.forName(&quot;test.reflect.Person&quot;);
+
+    Method method = clazz.getMethod(&quot;show&quot;,null); //获取指定方法，必须要指定方法名。空参数。
+
+    //Object obj = clazz.newInstance();
+
+    Constructor constructor = clazz.getConstructor(String.class, int.class);
+
+    Object obj = constructor.newInstance(&quot;baobao&quot;,25)
+
+    method.invoke(obj,null);
+    //person param run......baobao:25
+    //show run...baobao:25
+
+}
+
+/**
+ * 获取有参数方法。
+ * */
+public static void getMethodDemo_3() throws Exception {
+
+    Class clazz = Class.forName(&quot;test.reflect.Person&quot;);
+
+    Method method = clazz.getMethod(&quot;paramMethod&quot;, String.class, int.class); //获取指定方法，必须要指定方法名。空参数。
+
+    Object obj = clazz.newInstance();
+
+    method.invoke(obj,&quot;daidai&quot;,25);
+    //person run...
+    //paramMethod run...daidai:25
+}
+</code></pre>
+</div>
+
+<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="java反射机制详解">
+</div>
+
+  		</div>
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>java反射机制实例 - Girls,Fighting</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="##java反射机制实例展示
+例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  
+首先是主板类
+public class MainBoard {
+    public static void run(){
+        System.out.println(&amp;quot;MainBoard">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="Hliyuan">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <header id="header">
+  <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+    <a class="navbar-brand ml-2" href="/">Girls,Fighting</a>
+    <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto my-auto">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/archives">Archives</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        
+      </ul>
+      <hr class="hidden-md-up" />
+    </div>
+  </nav>
+</header>
+
+  		<div class="row">
+  			<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>java反射机制实例</h1>
+</div>
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <p>##java反射机制实例展示</p>
+<p>例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  </p>
+<p>首先是主板类</p>
+<pre><code>public class MainBoard {
+    public static void run(){
+        System.out.println(&quot;MainBoard run...&quot;);
+    }
+}
+</code></pre><p>应用程序运行类</p>
+<pre><code>public class ReflectTest {
+
+    /**
+     * 电脑运行
+     * */
+    public static void main(String[] args) {
+
+        MainBoard mainBoard = new MainBoard();
+        mainBoard.run();
+
+    }
+}
+</code></pre><p>在这个基础上，如果我们想要添加声卡网卡或者其他的配件应用。原始的方法，我们需要去修改应用程序。而如果使用java反射机制的话，我们可以大大提高应用程序的可扩展性。</p>
+<p>###应用java反射机制</p>
+<p>1.我们可以定义一个接口，以备后面加入的新的配件应用的启动和关闭  </p>
+<pre><code>public interface PCI {
+
+    public  void open();
+    public  void close();
+
+}
+</code></pre><p>2.增加配置文件pci.properities，并将配置文件放至根目录下。</p>
+<pre><code>pci1=test.reflectDemo.类名      //类的路径名。
+</code></pre><p>3.修改运行类，要读取配置文件</p>
+<pre><code>public class ReflectTest {
+
+    /**
+     * 电脑运行
+     * */
+    public static void main(String[] args) throws Exception {
+
+        MainBoard mainBoard = new MainBoard();
+        mainBoard.run();
+
+
+        //扩展应用，读取配置文件
+        File configFile = new File(&quot;pci.properities&quot;);
+
+        Properties prop = new Properties();
+
+        FileInputStream fis = new FileInputStream(configFile);
+
+        prop.load(fis);      //将流数据加载到集合中
+
+        for (int i = 0; i &lt; prop.size(); i++) {
+
+            String className = prop.getProperty(&quot;pci&quot;+(i+1));   //读取pci1.
+
+            Class clazz = Class.forName(className);            //获取配置文件中所声明的类。
+
+            PCI p =(PCI) clazz.newInstance();
+
+            p.open();
+
+        }
+
+    }
+}
+</code></pre><p>如果，要增加新的功能，就只需增加一个实现了PCI接口的类，并且在配置文件加入这个类的名字即可。</p>
+<p>###应用程序的扩展</p>
+<p>例如：  新增一个声卡，一个网卡。则只需实现PCI接口，并在配置文件中声明即可。</p>
+<pre><code>public class SoundCard implements PCI {
+
+    public void open() {
+        System.out.println(&quot;sound card run......&quot;);
+    }
+
+    public void close() {
+        System.out.println(&quot;sound card close......&quot;);
+    }
+}
+
+public class NetCard implements PCI {
+    public void open() {
+        System.out.println(&quot;net card run ....&quot;);
+    }
+
+    public void close() {
+        System.out.println(&quot;net card close ....&quot;);
+    }
+}
+</code></pre><p>修改配置文件：</p>
+<pre><code>pci1=test.reflectDemo.SoundCard
+pci2=test.reflectDemo.NetCard
+</code></pre><p>直接运行ReflectTest的main方法即可实现。<br>运行结果如下：</p>
+<pre><code>MainBoard run...
+sound card run......
+net card run ....
+</code></pre><p>##参考<br>1.毕向东java基础课程。</p>
+
+</div>
+
+<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="java反射机制实例">
+</div>
+
+  		</div>
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
