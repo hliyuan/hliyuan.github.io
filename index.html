@@ -322,11 +322,8 @@
       
         
           
-            <p>###1.控制台输出内容，单引号双引号均可以 </p>
-<p><code>console.log(&#39;log test&#39;)         //在控制台打印log</code>   </p>
-<p>###2.声明变量用var   </p>
-<p>###3.<strong>数据</strong>和<strong>过程</strong>是构成javascript世界的基本元素。其中，数据分两类-<strong>简单数据</strong>和<strong>复杂数据</strong>；过程只有一种形式，就是<strong>function</strong>  </p>
-<blockquote>
+            <h3 id="1-控制台输出内容，单引号双引号均可以"><a href="#1-控制台输出内容，单引号双引号均可以" class="headerlink" title="1.控制台输出内容，单引号双引号均可以"></a>1.控制台输出内容，单引号双引号均可以</h3><p><code>console.log(&#39;log test&#39;)         //在控制台打印log</code>   </p>
+<h3 id="2-声明变量用var"><a href="#2-声明变量用var" class="headerlink" title="2.声明变量用var"></a>2.声明变量用var</h3><h3 id="3-数据和过程是构成javascript世界的基本元素。其中，数据分两类-简单数据和复杂数据；过程只有一种形式，就是function"><a href="#3-数据和过程是构成javascript世界的基本元素。其中，数据分两类-简单数据和复杂数据；过程只有一种形式，就是function" class="headerlink" title="3.数据和过程是构成javascript世界的基本元素。其中，数据分两类-简单数据和复杂数据；过程只有一种形式，就是function"></a>3.<strong>数据</strong>和<strong>过程</strong>是构成javascript世界的基本元素。其中，数据分两类-<strong>简单数据</strong>和<strong>复杂数据</strong>；过程只有一种形式，就是<strong>function</strong></h3><blockquote>
 <p>简单数据类型  </p>
 </blockquote>
 <p>&ensp;&ensp;undefined:这个值表示变量不含有值<br>&ensp;&ensp;null: 这个值表示变量为空<br>&ensp;&ensp;boolean: true/false<br>&ensp;&ensp;number: js只有一种数字类型，可以带小数点，可以不带<br>&ensp;&ensp;string: 字符串<br><code>typeof(data)</code> 返回data的数据类型  </p>
@@ -334,8 +331,7 @@
 <p>复杂数据类型</p>
 </blockquote>
 <p>js中复杂数据类型只有一种，即对象{object}<br>对象由花括号包围。在括号内部，属性以键值对的形式，如 key : value 来定义，又称属性名和属性值。属性间由逗号分隔。例如:<br><code>var student={name:&#39;Tom&#39;, age:25, id:123};</code><br>对象属性值有两种获取方式:<br><code>name = student.name;</code><br><code>name = student[&#39;name&#39;];</code><br>对象的另一种格式—数组<br>例如：<br>声明对象<br><code>var courses = [ &quot;Math&quot;, &quot;Chinese&quot;, &quot;Biology&quot;, &quot;Physics&quot;];</code><br>对象取值<br><code>var course = course[0]</code><br>数组和对象的区别是<br>[1]数组两端由方括号包围，而不是对象两端的花括号。<br>[2]数组内的数据是一个个独立的值(value)，由逗号隔开，而不是对象中的属性键值对形式( key:value)。</p>
-<p>###4.运算符</p>
-<blockquote>
+<h3 id="4-运算符"><a href="#4-运算符" class="headerlink" title="4.运算符"></a>4.运算符</h3><blockquote>
 <p>算数运算符</p>
 </blockquote>
 <p>数字运算<br>&ensp;&ensp;+、-、<em>、/、%、++、–<br>&ensp;&ensp;优先级顺序<code>++ --</code> -&gt; `</em> / %<code>-&gt;</code>+ -`<br>字符串中用+号表示连接两个字符串  </p>
@@ -351,7 +347,7 @@
 <p>条件运算符</p>
 </blockquote>
 <p><code>conditin?a:b;</code>  condition为true时，执行a,否则，执行b.  </p>
-<p>###5.过程–function<br>声明函数的格式    </p>
+<h3 id="5-过程–function"><a href="#5-过程–function" class="headerlink" title="5.过程–function"></a>5.过程–function</h3><p>声明函数的格式    </p>
 <pre><code>function 函数名(参数, 参数, ...){  
     代码块  
 }      
@@ -359,7 +355,7 @@
 <pre><code>function sum(a, b){
     return a+b ;
 }  
-</code></pre><p>###6.代码块与作用域<br>所有{}包起来的代码，都可以称之为 “代码块”。</p>
+</code></pre><h3 id="6-代码块与作用域"><a href="#6-代码块与作用域" class="headerlink" title="6.代码块与作用域"></a>6.代码块与作用域</h3><p>所有{}包起来的代码，都可以称之为 “代码块”。</p>
 <p>每个代码块都有一个自己的作用域，作用域决定了变量能否被访问（不论读取变量还是修改变量）<br>访问规则：<br>&ensp;&ensp;1）.在最上层没有任何{}包裹的作用域为顶层作用域，声明的变量是哪里都可以访问的，如：  </p>
 <pre><code>var x = 5;
 if(x&gt;0){     //可以访问
@@ -529,7 +525,7 @@ console.log(x); //打印的是5
       
         
           
-            <p>例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  </p>
+            <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  </p>
 <p>首先是主板类</p>
 <pre><code>public class MainBoard {
     public static void run(){
@@ -550,8 +546,7 @@ console.log(x); //打印的是5
     }
 }
 </code></pre><p>在这个基础上，如果我们想要添加声卡网卡或者其他的配件应用。原始的方法，我们需要去修改应用程序。而如果使用java反射机制的话，我们可以大大提高应用程序的可扩展性。</p>
-<p>###应用java反射机制</p>
-<p>1.我们可以定义一个接口，以备后面加入的新的配件应用的启动和关闭  </p>
+<h3 id="应用java反射机制"><a href="#应用java反射机制" class="headerlink" title="应用java反射机制"></a>应用java反射机制</h3><p>1.我们可以定义一个接口，以备后面加入的新的配件应用的启动和关闭  </p>
 <pre><code>public interface PCI {
 
     public  void open();
@@ -596,8 +591,7 @@ console.log(x); //打印的是5
     }
 }
 </code></pre><p>如果，要增加新的功能，就只需增加一个实现了PCI接口的类，并且在配置文件加入这个类的名字即可。</p>
-<p>###应用程序的扩展</p>
-<p>例如：  新增一个声卡，一个网卡。则只需实现PCI接口，并在配置文件中声明即可。</p>
+<h3 id="应用程序的扩展"><a href="#应用程序的扩展" class="headerlink" title="应用程序的扩展"></a>应用程序的扩展</h3><p>例如：  新增一个声卡，一个网卡。则只需实现PCI接口，并在配置文件中声明即可。</p>
 <pre><code>public class SoundCard implements PCI {
 
     public void open() {
@@ -625,7 +619,7 @@ pci2=test.reflectDemo.NetCard
 <pre><code>MainBoard run...
 sound card run......
 net card run ....
-</code></pre><p>##参考<br>1.毕向东java基础课程。</p>
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>1.毕向东java基础课程。</p>
 
           
         
@@ -737,17 +731,15 @@ net card run ....
       
         
           
-            <p>###概念<br>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
-<p>###java反射机制的应用场景：<br>例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供的接口，也可以新建一个类，但是要怎么应用这个类呢？我们不可能直接去应用程序中定义这个类，因此，我们可以在该应用程序对外提供的配置文件中，将这个类文件的名字在配置文件中声明，则应用程序会自动读取配置文件，获取这个类的全部属性以及方法。</p>
-<p>###优点：大大提高了程序的扩展性以及灵活性。</p>
-<p>###前提</p>
-<p>想要对一个类文件进行解剖，只要获取该类的字节码文件对象即可。</p>
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
+<h3 id="java反射机制的应用场景："><a href="#java反射机制的应用场景：" class="headerlink" title="java反射机制的应用场景："></a>java反射机制的应用场景：</h3><p>例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供的接口，也可以新建一个类，但是要怎么应用这个类呢？我们不可能直接去应用程序中定义这个类，因此，我们可以在该应用程序对外提供的配置文件中，将这个类文件的名字在配置文件中声明，则应用程序会自动读取配置文件，获取这个类的全部属性以及方法。</p>
+<h3 id="优点：大大提高了程序的扩展性以及灵活性。"><a href="#优点：大大提高了程序的扩展性以及灵活性。" class="headerlink" title="优点：大大提高了程序的扩展性以及灵活性。"></a>优点：大大提高了程序的扩展性以及灵活性。</h3><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>想要对一个类文件进行解剖，只要获取该类的字节码文件对象即可。</p>
 <pre><code>class Class{
     //获取字节码文件中的内容
     //比如：名称，字段，构造函数，一般函数。
 }//该类就可以获取字节码文件中的所有内容。
 //那么反射就是依靠该类来完成的。
-</code></pre><p>###获取Class文件的三种方式<br>先定义一个Person类</p>
+</code></pre><h3 id="获取Class文件的三种方式"><a href="#获取Class文件的三种方式" class="headerlink" title="获取Class文件的三种方式"></a>获取Class文件的三种方式</h3><p>先定义一个Person类</p>
 <pre><code>public class Person {
     private String name;
     private int age;
@@ -809,7 +801,7 @@ net card run ....
 
     System.out.println(clazz1);  //打印true
 }
-</code></pre><p>###获取Class中的构造函数<br>1.调用无参构造函数的方法</p>
+</code></pre><h3 id="获取Class中的构造函数"><a href="#获取Class中的构造函数" class="headerlink" title="获取Class中的构造函数"></a>获取Class中的构造函数</h3><p>1.调用无参构造函数的方法</p>
 <pre><code>public static void createNewObject_1() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
     //早期:new的时候，先根据被new的类的名称找寻该该类的字节码文件，并加载进内存。
     //并创建该字节码文件对象，并接着创建该字节文件的对应的Person对象。
@@ -847,8 +839,7 @@ net card run ....
     Object obj = constructor.newInstance(&quot;daidai&quot;,25);
 
 }
-</code></pre><p>###获取Class中的字段</p>
-<pre><code>public static void getFieldDemo() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, InstantiationException {
+</code></pre><h3 id="获取Class中的字段"><a href="#获取Class中的字段" class="headerlink" title="获取Class中的字段"></a>获取Class中的字段</h3><pre><code>public static void getFieldDemo() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, InstantiationException {
 
     Class clazz = Class.forName(&quot;test.reflect.Person&quot;);
 
@@ -874,8 +865,7 @@ net card run ....
     System.out.println(o2);  //25
 
 }
-</code></pre><p>###获取Class中的方法</p>
-<pre><code>/**
+</code></pre><h3 id="获取Class中的方法"><a href="#获取Class中的方法" class="headerlink" title="获取Class中的方法"></a>获取Class中的方法</h3><pre><code>/**
  * 获取指定Class中的所有公有函数
  * */
 public static void getMethodDemo_1() throws ClassNotFoundException {

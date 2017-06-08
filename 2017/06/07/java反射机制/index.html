@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用">
+<meta name="description" content="概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java反射机制详解">
 <meta property="og:url" content="http://yoursite.com/2017/06/07/java反射机制/index.html">
 <meta property="og:site_name" content="小圆子的blog">
-<meta property="og:description" content="###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用">
-<meta property="og:updated_time" content="2017-06-08T09:10:09.886Z">
+<meta property="og:description" content="概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供">
+<meta property="og:updated_time" content="2017-06-08T09:16:18.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射机制详解">
-<meta name="twitter:description" content="###概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 ###java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用">
+<meta name="twitter:description" content="概念java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。动态获取类中信息，就是java的反射机制。可以理解对类的解剖。 java反射机制的应用场景：例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供">
 
 
 
@@ -320,17 +320,15 @@
       
 
       
-        <p>###概念<br>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
-<p>###java反射机制的应用场景：<br>例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供的接口，也可以新建一个类，但是要怎么应用这个类呢？我们不可能直接去应用程序中定义这个类，因此，我们可以在该应用程序对外提供的配置文件中，将这个类文件的名字在配置文件中声明，则应用程序会自动读取配置文件，获取这个类的全部属性以及方法。</p>
-<p>###优点：大大提高了程序的扩展性以及灵活性。</p>
-<p>###前提</p>
-<p>想要对一个类文件进行解剖，只要获取该类的字节码文件对象即可。</p>
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>java反射机制实在运行状态中，对于任意一个类（class文件）,都能够知道这个类的所有属性和方法；对任意一个对象，都能调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能成为java语言的反射机制。<br>动态获取类中信息，就是java的反射机制。<br>可以理解对类的解剖。</p>
+<h3 id="java反射机制的应用场景："><a href="#java反射机制的应用场景：" class="headerlink" title="java反射机制的应用场景："></a>java反射机制的应用场景：</h3><p>例如：在一个已有的应用程序中，我们需要增加一个新的功能，可以实现该应用程序对外提供的接口，也可以新建一个类，但是要怎么应用这个类呢？我们不可能直接去应用程序中定义这个类，因此，我们可以在该应用程序对外提供的配置文件中，将这个类文件的名字在配置文件中声明，则应用程序会自动读取配置文件，获取这个类的全部属性以及方法。</p>
+<h3 id="优点：大大提高了程序的扩展性以及灵活性。"><a href="#优点：大大提高了程序的扩展性以及灵活性。" class="headerlink" title="优点：大大提高了程序的扩展性以及灵活性。"></a>优点：大大提高了程序的扩展性以及灵活性。</h3><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>想要对一个类文件进行解剖，只要获取该类的字节码文件对象即可。</p>
 <pre><code>class Class{
     //获取字节码文件中的内容
     //比如：名称，字段，构造函数，一般函数。
 }//该类就可以获取字节码文件中的所有内容。
 //那么反射就是依靠该类来完成的。
-</code></pre><p>###获取Class文件的三种方式<br>先定义一个Person类</p>
+</code></pre><h3 id="获取Class文件的三种方式"><a href="#获取Class文件的三种方式" class="headerlink" title="获取Class文件的三种方式"></a>获取Class文件的三种方式</h3><p>先定义一个Person类</p>
 <pre><code>public class Person {
     private String name;
     private int age;
@@ -392,7 +390,7 @@
 
     System.out.println(clazz1);  //打印true
 }
-</code></pre><p>###获取Class中的构造函数<br>1.调用无参构造函数的方法</p>
+</code></pre><h3 id="获取Class中的构造函数"><a href="#获取Class中的构造函数" class="headerlink" title="获取Class中的构造函数"></a>获取Class中的构造函数</h3><p>1.调用无参构造函数的方法</p>
 <pre><code>public static void createNewObject_1() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
     //早期:new的时候，先根据被new的类的名称找寻该该类的字节码文件，并加载进内存。
     //并创建该字节码文件对象，并接着创建该字节文件的对应的Person对象。
@@ -430,8 +428,7 @@
     Object obj = constructor.newInstance(&quot;daidai&quot;,25);
 
 }
-</code></pre><p>###获取Class中的字段</p>
-<pre><code>public static void getFieldDemo() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, InstantiationException {
+</code></pre><h3 id="获取Class中的字段"><a href="#获取Class中的字段" class="headerlink" title="获取Class中的字段"></a>获取Class中的字段</h3><pre><code>public static void getFieldDemo() throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException, InstantiationException {
 
     Class clazz = Class.forName(&quot;test.reflect.Person&quot;);
 
@@ -457,8 +454,7 @@
     System.out.println(o2);  //25
 
 }
-</code></pre><p>###获取Class中的方法</p>
-<pre><code>/**
+</code></pre><h3 id="获取Class中的方法"><a href="#获取Class中的方法" class="headerlink" title="获取Class中的方法"></a>获取Class中的方法</h3><pre><code>/**
  * 获取指定Class中的所有公有函数
  * */
 public static void getMethodDemo_1() throws ClassNotFoundException {
@@ -605,8 +601,17 @@ public static void getMethodDemo_3() throws Exception {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -650,6 +655,22 @@ public static void getMethodDemo_3() throws Exception {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java反射机制的应用场景："><span class="nav-number">2.</span> <span class="nav-text">java反射机制的应用场景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优点：大大提高了程序的扩展性以及灵活性。"><span class="nav-number">3.</span> <span class="nav-text">优点：大大提高了程序的扩展性以及灵活性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前提"><span class="nav-number">4.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class文件的三种方式"><span class="nav-number">5.</span> <span class="nav-text">获取Class文件的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的构造函数"><span class="nav-number">6.</span> <span class="nav-text">获取Class中的构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的字段"><span class="nav-number">7.</span> <span class="nav-text">获取Class中的字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Class中的方法"><span class="nav-number">8.</span> <span class="nav-text">获取Class中的方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

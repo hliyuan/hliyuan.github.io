@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。   首先是主板类 public class MainBoard {     public static void run(){         System.out.println(&amp;quot;MainBoard run...&amp;quot;);     } } 应用程序运行类 public class ReflectTest {      /">
+<meta name="description" content="示例例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。   首先是主板类 public class MainBoard {     public static void run(){         System.out.println(&amp;quot;MainBoard run...&amp;quot;);     } } 应用程序运行类 public class ReflectTest {">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java反射机制实例">
 <meta property="og:url" content="http://yoursite.com/2017/06/08/java反射机制实例/index.html">
 <meta property="og:site_name" content="小圆子的blog">
-<meta property="og:description" content="例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。   首先是主板类 public class MainBoard {     public static void run(){         System.out.println(&amp;quot;MainBoard run...&amp;quot;);     } } 应用程序运行类 public class ReflectTest {      /">
-<meta property="og:updated_time" content="2017-06-08T09:10:08.360Z">
+<meta property="og:description" content="示例例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。   首先是主板类 public class MainBoard {     public static void run(){         System.out.println(&amp;quot;MainBoard run...&amp;quot;);     } } 应用程序运行类 public class ReflectTest {">
+<meta property="og:updated_time" content="2017-06-08T09:17:52.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java反射机制实例">
-<meta name="twitter:description" content="例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。   首先是主板类 public class MainBoard {     public static void run(){         System.out.println(&amp;quot;MainBoard run...&amp;quot;);     } } 应用程序运行类 public class ReflectTest {      /">
+<meta name="twitter:description" content="示例例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。   首先是主板类 public class MainBoard {     public static void run(){         System.out.println(&amp;quot;MainBoard run...&amp;quot;);     } } 应用程序运行类 public class ReflectTest {">
 
 
 
@@ -320,7 +320,7 @@
       
 
       
-        <p>例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  </p>
+        <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>例如：我们想要一个电脑运行。首要我们需要主板能够跑起来。  </p>
 <p>首先是主板类</p>
 <pre><code>public class MainBoard {
     public static void run(){
@@ -341,8 +341,7 @@
     }
 }
 </code></pre><p>在这个基础上，如果我们想要添加声卡网卡或者其他的配件应用。原始的方法，我们需要去修改应用程序。而如果使用java反射机制的话，我们可以大大提高应用程序的可扩展性。</p>
-<p>###应用java反射机制</p>
-<p>1.我们可以定义一个接口，以备后面加入的新的配件应用的启动和关闭  </p>
+<h3 id="应用java反射机制"><a href="#应用java反射机制" class="headerlink" title="应用java反射机制"></a>应用java反射机制</h3><p>1.我们可以定义一个接口，以备后面加入的新的配件应用的启动和关闭  </p>
 <pre><code>public interface PCI {
 
     public  void open();
@@ -387,8 +386,7 @@
     }
 }
 </code></pre><p>如果，要增加新的功能，就只需增加一个实现了PCI接口的类，并且在配置文件加入这个类的名字即可。</p>
-<p>###应用程序的扩展</p>
-<p>例如：  新增一个声卡，一个网卡。则只需实现PCI接口，并在配置文件中声明即可。</p>
+<h3 id="应用程序的扩展"><a href="#应用程序的扩展" class="headerlink" title="应用程序的扩展"></a>应用程序的扩展</h3><p>例如：  新增一个声卡，一个网卡。则只需实现PCI接口，并在配置文件中声明即可。</p>
 <pre><code>public class SoundCard implements PCI {
 
     public void open() {
@@ -416,7 +414,7 @@ pci2=test.reflectDemo.NetCard
 <pre><code>MainBoard run...
 sound card run......
 net card run ....
-</code></pre><p>##参考<br>1.毕向东java基础课程。</p>
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>1.毕向东java基础课程。</p>
 
       
     </div>
@@ -512,8 +510,17 @@ net card run ....
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -557,6 +564,22 @@ net card run ....
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">1.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用java反射机制"><span class="nav-number">2.</span> <span class="nav-text">应用java反射机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用程序的扩展"><span class="nav-number">3.</span> <span class="nav-text">应用程序的扩展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
